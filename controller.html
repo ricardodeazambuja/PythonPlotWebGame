@@ -1,0 +1,45 @@
+<html>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<head>
+    <title>
+        Controller
+    </title>
+    
+<script Language="Javascript">
+
+var oReq = new XMLHttpRequest();
+
+function send_cmd(cmd)
+{
+    oReq.open("GET", "http://" + window.location.hostname + ":8080/cgi-bin/control.py?cmd="+cmd, true);
+    oReq.send();
+}
+
+
+</script>    
+<style>
+.button
+{
+    background:none;
+    border:none;
+}
+</style>
+
+</head>
+
+<body>
+<div style="text-align:center">
+  <h1>Control your spaceship!</h1>
+ 
+  <button type="submit"  name="submit" class="button" onmousedown="send_cmd('up');"><img src="arrow_up.jpg"/></button>        
+  <button type="submit"  name="submit" class="button" onmousedown="send_cmd('down')"><img src="arrow_down.jpg"/></button>    
+  <br>
+  <button type="submit"  name="submit" class="button" onmousedown="send_cmd('left')"><img src="left.jpg"/></button>    
+  <button type="submit"  name="submit" class="button" onmousedown="send_cmd('right')"><img src="right.jpg"/></button>
+  <br>
+  <button type="submit"  name="submit" class="button" onmousedown="send_cmd('fire')"><img src="fire.jpg"/></button>
+  </div>
+    
+</body>
+
+</html>
